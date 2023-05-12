@@ -1,0 +1,52 @@
+* {
+    font-family: Raleway, sans-serif
+}
+
+.rock {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.paper {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.scissors {
+    background-color: grey;
+    color: black;
+    cursor: pointer;
+}
+
+.playGame {
+    background: linear-gradient(red, blue);
+    color: white;
+    cursor: pointer;
+}
+
+.rock:hover {
+    background-color: red;
+    color: white;
+}
+
+.paper:hover {
+    background-color: red;
+    color: white;
+}
+
+.scissors:hover {
+    background-color: red;
+    color: white;
+}
+
+.playGame:hover {
+    background-color: red;
+    color: white;
+}
+
+body {
+    background-color: black;
+    color: white;
+}

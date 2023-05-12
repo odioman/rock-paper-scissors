@@ -1,13 +1,11 @@
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
-const computerChoiceDisplay = document.querySelector(".computerChoice");
 const playerChoiceDisplay = document.querySelector(".playerChoice");
 const playGame = document.querySelector(".playGame");
 const winnerMessage = document.querySelector(".winnerMessage");
-let player;
-
-
+const compOptions = ["Rock", "Paper", "Scissors"] 
+const compOption = compOptions[Math.floor(compOptions.length * Math.random())] 
 
 function eventListener() { 
     rock.addEventListener('click', () => {
@@ -21,30 +19,35 @@ function eventListener() {
     });
 
     playGame.addEventListener('click', () => {
-        computerChoiceDisplay.textContent = compOption;
+        checkWinner(playerChoiceDisplay, compOption);
     })
 }
 
-eventListener();
-
-
-function computerOptions() {
-    compOptions = ["Rock", "Paper", "Scissors"] 
-    compOption = compOptions[Math.floor(compOptions.length * Math.random())] 
-    console.log(compOption) 
-    return compOption;
-}
-computerOptions();
-
 function checkWinner(playerChoiceDisplay, compOption) {
     if (playerChoiceDisplay.textContent === "Rock" && compOption === "Scissors") {
-        console.log("Rock crushes Paper. Player Wins!")
+        winnerMessage.textContent = "Rock crushes Scissors. Player Wins!"
     } else if (playerChoiceDisplay.textContent === "Rock" && compOption === "Paper") {
-        console.log("Paper covers Rock. Computer Wins!")
+        winnerMessage.textContent = "Paper covers Rock. Computer Wins!"
     } else if (playerChoiceDisplay.textContent === "Rock" && compOption === "Rock") {
-        console.log("Both chose Rock. Draw!")
+        winnerMessage.textContent = "Both chose Rock. Draw!"
+    } else if (playerChoiceDisplay.textContent === "Paper" && compOption === "Scissors") {
+        winnerMessage.textContent = "Scissors cut Paper. Computer Wins!"
+    } else if (playerChoiceDisplay.textContent === "Paper" && compOption === "Rock") {
+        winnerMessage.textContent = "Paper covers Rock. Player Wins!"
+    } else if (playerChoiceDisplay.textContent === "Paper" && compOption === "Paper") {
+        winnerMessage.textContent = "Both chose Paper. Draw!"
+    } else if (playerChoiceDisplay.textContent === "Scissors" && compOption === "Paper") {
+        winnerMessage.textContent = "Scissors cut Paper. Player Wins!"
+    } else if (playerChoiceDisplay.textContent === "Scissors" && compOption === "Rock") {
+        winnerMessage.textContent = "Rock crushes Scissors. Computer Wins!" 
+    } else if (playerChoiceDisplay.textContent === "Scissors" && compOption === "Scissors") {
+        winnerMessage.textContent = "Both chose Scissors. Draw!"
     }
 
 }
 
-checkWinner(playerChoiceDisplay, compOption);
+function startGame() {
+    eventListener();    
+}
+
+startGame()
